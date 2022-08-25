@@ -1,0 +1,68 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 09/02/2022 19:23:45
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :  TIMER
+00000000                             3  * Written by :  Joshua Wilkinson
+00000000                             4  * Date       :  09/02/2022
+00000000                             5  * Description:  Sample Timer for the game I am working on
+00000000                             6  *-----------------------------------------------------------
+00001000                             7      ORG    $1000
+00001000                             8  START:                  ; first instruction of program
+00001000  143C 0001                  9      MOVE.B #1, D2
+00001004                            10  * Put program code here
+00001004                            11  
+00001004                            12  GAME_LOOP:
+00001004                            13      
+00001004  4281                      14      CLR.L D1
+00001006                            15      
+00001006  1202                      16      MOVE.B D2, D1     # Sample message
+00001008  103C 0003                 17      MOVE.B #3, D0      
+0000100C  4E4F                      18      TRAP #15
+0000100E  5242                      19      ADD #1, D2
+00001010                            20      
+00001010  103C 0008                 21      MOVE.B #8, D0       # Loads to since whenever 
+00001014  4E4F                      22      TRAP #15            # Into D1    
+00001016                            23      
+00001016  2801                      24      MOVE.L D1, D4       # A copy of it for subtraction
+00001018  2A01                      25      MOVE.L D1, D5       # A copy to reset D4 if it does'nt go back to GAME_LOOP        
+0000101A                            26      
+0000101A  6000 0002                 27      BRA TIME_LOOP
+0000101E                            28  
+0000101E                            29  
+0000101E                            30  
+0000101E                            31  TIME_LOOP:
+0000101E                            32  
+0000101E  103C 0008                 33      MOVE.B #8, D0
+00001022  4E4F                      34      TRAP #15
+00001024                            35      
+00001024  9244                      36      SUB D4, D1      
+00001026                            37      
+00001026  B27C 0064                 38      CMP #100, D1    # 100 for every second
+0000102A  6ED8                      39      BGT GAME_LOOP   # If 
+0000102C                            40      
+0000102C  2805                      41      MOVE.L D5, D4   # Else reset to original value
+0000102E                            42      
+0000102E  60EE                      43      BRA TIME_LOOP   # Repeat the loop until true    
+00001030                            44  
+00001030                            45  
+00001030                            46  
+00001030  FFFF FFFF                 47      SIMHALT             ; halt simulator
+00001034                            48  
+00001034                            49  * Put variables and constants here
+00001034= 54 49 4D 45 52 20 00      50  MESSAGE dc.b    'TIMER ',0      
+0000103B                            51  
+0000103B                            52      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+GAME_LOOP           1004
+MESSAGE             1034
+START               1000
+TIME_LOOP           101E

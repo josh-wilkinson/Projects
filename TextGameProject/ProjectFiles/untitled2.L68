@@ -1,0 +1,45 @@
+00001000 Starting Address
+Assembler used: EASy68K Editor/Assembler v5.16.01
+Created On: 08/05/2022 17:47:06
+
+00000000                             1  *-----------------------------------------------------------
+00000000                             2  * Title      :
+00000000                             3  * Written by :
+00000000                             4  * Date       :
+00000000                             5  * Description:
+00000000                             6  *-----------------------------------------------------------
+00001000                             7      ORG    $1000
+00001000                             8  START:                  ; first instruction of program
+00001000                             9  
+00001000                            10  * Put program code here
+00001000                            11  
+00001000  720A                      12      MOVE.L #%1010, D1
+00001002                            13      
+00001002  82FC 0002                 14      DIVU #2, D1
+00001006                            15      
+00001006  21C1 3000                 16      MOVE.L D1, $3000
+0000100A                            17      
+0000100A  47F8 3000                 18      LEA $3000, A3
+0000100E                            19      
+0000100E  4281                      20      CLR.L D1
+00001010                            21      
+00001010  2213                      22      MOVE.L (A3), D1
+00001012                            23      
+00001012  103C 0003                 24      MOVE.B #3, D0
+00001016                            25     
+00001016  4E4F                      26      TRAP #15
+00001018                            27  
+00001018  FFFF FFFF                 28      SIMHALT             ; halt simulator
+0000101C                            29  
+0000101C                            30  * Put variables and constants here
+0000101C                            31  
+0000101C                            32      END    START        ; last line of source
+
+No errors detected
+No warnings generated
+
+
+SYMBOL TABLE INFORMATION
+Symbol-name         Value
+-------------------------
+START               1000

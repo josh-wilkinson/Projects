@@ -1,0 +1,19 @@
+Text based adventure, using ASM 68k in Easy68k editor.
+
+Theme: Climate Action Strategy Text Adventure
+
+Ideas:
+
+	- Save the bees!
+	- Battle System?
+	- Item Pickups
+	- At least 9 explorable areas?
+	- Enemies and a final boss (ceo of fossil fuel?)
+	- Weapons with attack power
+	- Level-up system?
+	- Shop to buy equipment
+	- Passwords?
+	- ASCII art?
+	- Optional choices (with good and bad ending?)?
+	
+	
