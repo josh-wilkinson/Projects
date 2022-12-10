@@ -1,5 +1,5 @@
 *-----------------------------------------------------------
-* Title      :  RTS Game
+* Title      :  Tua Tropic - Text-based Strategy Game
 * Written by :  Joshua Wilkinson
 * Date       :  09/02/2022
 * Description:  Game project, small text based strategy game.
