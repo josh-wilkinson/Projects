@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Bake Café</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inconsolata">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="top">
+        <div class="row padding black">
+            <div class="col nav">
+                <a href="#" class="button block">HOME</a>
+            </div>
+            <div class="col nav">
+                <a href="#about" class="button block">ABOUT</a>
+            </div>
+            <div class="col nav">
+                <a href="#menu" class="button block">MENU</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Image Header -->
+    <header class="bgimg display-container" id="home">
+        <div class="display-bottom-left padding">
+            <span class="black-bg">Open from 9am to 5pm</span>
+        </div>
+        <div class="display-middle center">
+            <span class="text-white" style="font-size:90px">Bake<br>Café</span>
+        </div>
+        <div class="display-bottom-right padding">
+            <span class="" style="color: blue;">
+                <a href="https://m.facebook.com/www.bakecafecarlow/">
+                    FaceBook Page
+                </a>
+            </span>
+        </div>
+    </header>
+
+    <!-- Background colour for the main div of the page -->
+    <div class="sand grayscale large">
+
+        <!-- About Container -->
+        <div class="container" id="about">
+            <div class="content" style="max-width:700px">
+                <h5 class="center padding-extra"><span class="black-bg text-wide">ABOUT BAKE CAFÉ</span></h5>
+                <p>Welcome to the Bake Café website! We are a local café and tearoom located in the middle of Carlow town.
+                </p>
+                <p>In addition to our full coffee and drinks menu, we serve fresh made-to-order breakfast and lunch
+                    sandwiches, as well as a selection of sides and salads. Everything is made using freshly sourced ingredients.</p>
+
+                <!-- note: could add image of some food here -->
+
+                <p><strong>Opening hours:</strong> Monday to Saturday from 9am to 5pm.</p>
+                <p><strong>Address:</strong> 132 Tullow St, Graigue, Carlow, R93 HE12</p>
+            </div>
+        </div>
+
+        <!-- Menu Container -->
+        <div class="container" id="menu">
+            <div class="content" style="max-width:700px">
+
+                <h5 class="center padding-extra"><span class="black-bg text-wide">THE MENU</span></h5>
+                <p>Here are our Menu options, we offer different items for Breakfast and Lunch, you can view either of
+                    these Menus by clicking on one of the buttons.</p>
+
+                <div class="row center card padding">
+                    <a href="javascript:void(0)" onclick="openMenu(event, 'Breakfast');" id="myLink">
+                        <div class="col tablink">Breakfast</div>
+                    </a>
+                    <a href="javascript:void(0)" onclick="openMenu(event, 'Lunch');">
+                        <div class="col tablink">Lunch</div>
+                    </a>
+                </div> <br>
+
+                <div id="Breakfast" class="container menu padding card">
+                    <iframe src="Bake's breakfast.pdf"></iframe>
+                </div>
+
+                <div id="Lunch" class="container menu padding card">
+                    <iframe src="Bake's Lunch.pdf"></iframe>
+                </div> <br>
+
+            </div>
+        </div>
+
+        <!-- End of the main div -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="center light-grey padding-extra large">
+        <p>Bake Café & Tearoom LTD., 132 Tullow St, Graigue, Carlow, R93 HE12</p>
+        <p>Phone: <a href="tel:0599134399">(059) 913 4399</a> , Email: <a href="mailto:michelle.a.wilkinson@gmail.com">michelle.a.wilkinson@gmail.com</a></p>
+    </footer>
+
+    <script>
+        // Tab Menu
+        function openMenu(evt, menuName) {
+            var i, x, tablinks;
+            x = document.getElementsByClassName("menu");
+
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+
+            tablinks = document.getElementsByClassName("tablink");
+
+            for (i = 0; i < x.length; i++) {
+                tablinks[i].className = tablinks[i].className.replace(" dark-grey", "");
+            }
+            document.getElementById(menuName).style.display = "block";
+            evt.currentTarget.firstElementChild.className += " dark-grey";
+        }
+        document.getElementById("myLink").click();
+    </script>
+
+</body>
+
+</html>
